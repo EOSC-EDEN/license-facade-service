@@ -1,0 +1,67 @@
+site_name: License Facade Service
+site_description: Documentation for the EOSC EDEN License Facade Service from a digital preservation and archiving perspective.
+site_url: https://eosc-eden.github.io/license-facade-service/
+repo_url: https://github.com/EOSC-EDEN/license-facade-service
+repo_name: EOSC-EDEN/license-facade-service
+docs_dir: docs
+
+exclude_docs: |
+  requirements.txt
+  *.pdf
+
+not_in_nav: |
+  migration-note.md
+  specification.md
+
+plugins:
+  - search
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+extra_css:
+  - assets/asciinema-player/asciinema-player.css
+
+extra_javascript:
+  - assets/asciinema-player/asciinema-player.min.js
+  - javascripts/asciinema.js
+
+markdown_extensions:
+  - admonition
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+validation:
+  nav:
+    omitted_files: warn
+  links:
+    not_found: warn
+    anchors: warn
+
+nav:
+  - Home: index.md
+  - Tutorials:
+      - First licence lookup: tutorials/first-licence-lookup.md
+  - How-to guides:
+      - Run with Docker Compose: how-to/run-with-docker-compose.md
+      - Preserve licence evidence: how-to/preserve-licence-evidence.md
+  - Reference:
+      - REST API: reference/rest-api.md
+      - Configuration: reference/configuration.md
+      - Responses and errors: reference/responses-and-errors.md
+  - Explanation:
+      - System architecture: explanation/architecture.md
+      - Actors and use cases: explanation/use-cases.md
+      - Federation and preservation: explanation/federation-and-preservation.md
